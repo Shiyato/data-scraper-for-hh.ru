@@ -8,7 +8,7 @@ output = [[], [], [], [], []]
 companies = ["Umbrella IT", "EPAM Systems", "СимбирСофт", "Nord Clan", "Larga", "SkillStaff", "Extyl", "Fircode",
              "YOJJI", "Reksoft", "Лайв Тайпинг", "Redlab", "SibDev", "Effective Technologies", "Sofix", "Простые решения",
              "Aero ", "JetBit", "Ипол", "Урал-Софт", "AWG", "InSales", "RNS-Soft"]
-search_query = "Front-end developer" #Параметр для поискового запроса
+search_query = "Front-end developer"
 
 
 def get_page(page_num=0):
@@ -19,7 +19,6 @@ def get_page(page_num=0):
 
 
 def parse_person(url):
-    # Функция, которая собирает данные со страницы с резюме
     global output, companies, session
     response = session.get(url, headers={'User-Agent': 'Custom'})
     page = response.text
@@ -72,7 +71,7 @@ if not os.listdir('data'):
     rn = 1
 else:
     rn = int(os.listdir('data')[0][-6]) + 1
-file.to_excel(f'data/result{rn}.xlsx')
+file.to_excel(f'data/result{rn}.xlsx') #script saves data in 'data' folder
 
 
 
